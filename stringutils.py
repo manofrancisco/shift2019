@@ -32,10 +32,10 @@ def generateSuffixShift(key):
 
 
 # Actual Search Algorithm
-def BMSearch(needle):
-    haystack = ''
-    with open('digits.pi', 'r') as myfile:
-        haystack = myfile.read()
+def BMSearch(haystack,needle):
+    #haystack = ''
+    #with open('digits.pi', 'r') as myfile:
+    #    haystack = myfile.read()
     goodSuffix = generateSuffixShift(needle)
     badChar = generateBadCharShift(needle)
     i = 0
@@ -53,3 +53,14 @@ def BMSearch(needle):
         else:
             return i
     return -1
+
+
+def getstring(index,length):
+    haystack = ''
+    with open('digits.pi', 'r') as myfile:
+        haystack = myfile.read()
+    return haystack[index:index+length]
+
+
+def searchstring(s):
+    return str(BMSearch(s))
